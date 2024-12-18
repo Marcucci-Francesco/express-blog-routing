@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const blogPosts = require(('./../data/blog'));
 
 
 // Index
 router.get('/', (req, res) => {
-  res.send('Restituisce tutti gli elementi')
+  res.json(blogPosts)
 });
 
 //Show
 router.get('/:id', (req, res) => {
-  res.send(`Restituisce un singolo elemento con id ${req.params.id}`)
+  const postsId = blogPosts.find(({id}) => id == req.params.id)
+  res.json(postsId);
 });
 
 //Store

@@ -13,6 +13,8 @@ app.listen(port, () => {
   console.log(`Sono in ascolto alla porta ${port}`)
 });
 
+app.use(express.static('immagini_e_posts'));
 app.use('/posts', router);
 
-app.use(express.static('immagini_e_posts'));
+
+
